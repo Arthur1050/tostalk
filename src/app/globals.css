@@ -3,25 +3,52 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --transition-temp: 150ms 
+}
+
+:root[data-theme="dark"] {
+  --primary-rgb: 49 49 49;
+  --secondary-rgb: 65 65 65;
+  --tertiary-rgb: 72 72 72;
+
+  --msgarea-rgb: 82 82 82;
+
+  /* PRIMEIRA OPÇÃO */
+  /*--primary-rgb: 57 54 70;
+  --secondary-rgb: 79 69 87;
+  --tertiary-rgb: 71 59 82; */
+
+  --text-rgb: 255 255 255;
+  --border-rgb: var(--primary-rgb)/50%;
+  /* --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255; */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
+    --primary-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
+  display: flex;
+  justify-content: center;
+  padding: 3rem 6rem;
+  min-height: 100vh;
+  color: rgb(var(--text-rgb));
+  background: rgb(var(--primary-rgb))/* linear-gradient(
+      to top,
+      rgb(var(--background-start-rgb)),
       rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    ) */;
+}
+
+main {
+  display: flex;
+  flex: auto;
+  max-width: 1248px;
+  background: rgb(var(--secondary-rgb));
+  border-radius: 1rem;
 }
