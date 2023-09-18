@@ -4,8 +4,16 @@ import { DialogBoxStyle } from "./style";
 export default function DialogBox() {
     return(
         <DialogBoxStyle>
-            <MsgBox msgText="Mensagem de texto exemplo remetente."/>
-            <MsgBox msgText="Mensagem de texto exemplo destinatario."/>
+            <MsgBox author={2}
+                name="Destinario Qualquer" 
+                msgText="Mensagem de texto exemplo destinario."
+                temp="01:56"
+            />
+            <MsgBox author={1}
+                name="Arthur Tosta" 
+                msgText="Mensagem de texto exemplo remetente."
+                temp="01:58"
+            />
         </DialogBoxStyle>
     )
 }
