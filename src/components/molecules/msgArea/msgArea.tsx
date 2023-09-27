@@ -1,15 +1,17 @@
 'use client'
-import { KeyboardEvent, useState } from "react";
+import { KeyboardEvent, useContext, useState } from "react";
 import { MsgAreaStyle } from "./style";
 import { socket } from "@/app/layout";
+import { AuthContext } from "@/Context";
 
 export default function MsgArea() {
     const [msg, setMsg] = useState('');
+    const {username} = useContext(AuthContext)
 
     const keyPressMsg = (ev:KeyboardEvent) => {
         if (ev.key == 'Enter') {
             setMsg('');
-            socket.emit('send-msg', {msg});
+            socket.emit('send-msg', {msg, sender: username});
         }
     }
 

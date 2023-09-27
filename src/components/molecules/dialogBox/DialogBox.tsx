@@ -9,9 +9,9 @@ export default function DialogBox() {
     const [listMsg, setListMsg] = useState<JSX.Element[]>([])
 
     useEffect(() => {
-        socket.on('recept-msg', ({msg,date, id}:Message) => {
+        socket.on('recept-msg', ({msg,date, sender, receiver, id}:Message) => {
             const dateFormat = new Date(date);
-            const msgElemetn = <MsgBox key={id} name="Provisorio" author={1} msgText={msg} temp={`${dateFormat.getHours()}:${dateFormat.getMinutes()}`}/>;
+            const msgElemetn = <MsgBox key={id} name={sender} author={1} msgText={msg} temp={`${dateFormat.getHours()}:${dateFormat.getMinutes()}`}/>;
 
             setListMsg(list => {
                 return [
