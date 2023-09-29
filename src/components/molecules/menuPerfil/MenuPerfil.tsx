@@ -1,8 +1,13 @@
+'use client'
 import Image from "next/image";
 import perfil from '@/lib/assets/perfil.jpg'
 import { MenuPerfilStyle } from "./style";
+import { useContext } from "react";
+import { AuthContext } from "@/app/authContext";
 
 export default function MenuPerfil() {
+    const {username} = useContext(AuthContext);
+    console.log(username)
     return(
         <MenuPerfilStyle>
             <div>
@@ -14,7 +19,7 @@ export default function MenuPerfil() {
                     style={{objectFit: "cover"}}
                 />
                 <div>
-                    <span className="userName">Arthur Tosta</span>
+                    <span className="userName">{username}</span>
                 </div>
             </div>
         </MenuPerfilStyle>

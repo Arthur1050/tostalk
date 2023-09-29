@@ -1,8 +1,8 @@
 'use client'
 import { KeyboardEvent, useContext, useState } from "react";
 import { MsgAreaStyle } from "./style";
-import { socket } from "@/app/layout";
-import { AuthContext } from "@/Context";
+import { AuthContext } from "@/app/authContext";
+import { socket } from "@/app/chats/page";
 
 export default function MsgArea() {
     const [msg, setMsg] = useState('');

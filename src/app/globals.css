@@ -19,7 +19,7 @@
   --secondary-rgb: 79 69 87;
   --tertiary-rgb: 71 59 82; */
 
-  --text-rgb: 255 255 255;
+  --text-rgb: 0 0 0;
   --border-rgb: var(--primary-rgb)/50%;
   /* --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255; */

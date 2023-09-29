@@ -1,9 +1,9 @@
 'use client'
-import { socket } from "@/app/layout";
 import MsgBox from "../msgBox/MsgBox";
 import { DialogBoxStyle } from "./style";
 import { useEffect, useState } from "react";
 import { Message } from "@/types/chatTypes";
+import { socket } from "@/app/chats/page";
 
 export default function DialogBox() {
     const [listMsg, setListMsg] = useState<JSX.Element[]>([])
