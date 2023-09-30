@@ -7,7 +7,7 @@ const InputTextStyled = styled.input`
     border-radius: .25rem;
     outline: none;
     border: 1px solid rgb(var(--border-rgb));
-    color: rgb(var(--text-rgb));
+    color: #252525;
     &:focus-within {
         border-color: rgb(var(--contrast-rgb));
     }

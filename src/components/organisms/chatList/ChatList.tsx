@@ -1,10 +1,17 @@
+'use client'
 import ChatItem from "@/components/molecules/chatItem/ChatItem";
 import { ChatListStyle } from "./style";
+import { useContext } from "react";
+import { AuthContext } from "@/app/authContext";
 
 export default function ChatList() {
+    const {friends} = useContext(AuthContext)
+
     return(
         <ChatListStyle>
-            <ChatItem />
+            {friends.map( ({username, profile}) => 
+                <ChatItem key={username} username={username} profile={profile}/>)
+            }
         </ChatListStyle>
     )
 }

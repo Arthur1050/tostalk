@@ -6,8 +6,8 @@ import { useContext } from "react";
 import { AuthContext } from "@/app/authContext";
 
 export default function MenuPerfil() {
-    const {username} = useContext(AuthContext);
-    console.log(username)
+    const {username, profile} = useContext(AuthContext);
+
     return(
         <MenuPerfilStyle>
             <div>
@@ -15,7 +15,7 @@ export default function MenuPerfil() {
                     width={64} 
                     height={64} 
                     alt="perfil.jpg" 
-                    src={perfil.src}
+                    src={profile}
                     style={{objectFit: "cover"}}
                 />
                 <div>

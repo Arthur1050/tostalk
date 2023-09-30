@@ -3,7 +3,7 @@ import MsgBox from "../msgBox/MsgBox";
 import { DialogBoxStyle } from "./style";
 import { useEffect, useState } from "react";
 import { Message } from "@/types/chatTypes";
-import { socket } from "@/app/chats/page";
+import { socket } from "@/app/chats/ws";
 
 export default function DialogBox() {
     const [listMsg, setListMsg] = useState<JSX.Element[]>([])

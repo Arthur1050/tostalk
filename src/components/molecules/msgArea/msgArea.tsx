@@ -2,7 +2,7 @@
 import { KeyboardEvent, useContext, useState } from "react";
 import { MsgAreaStyle } from "./style";
 import { AuthContext } from "@/app/authContext";
-import { socket } from "@/app/chats/page";
+import { socket } from "@/app/chats/ws";
 
 export default function MsgArea() {
     const [msg, setMsg] = useState('');
