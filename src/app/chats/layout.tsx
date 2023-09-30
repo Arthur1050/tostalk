@@ -2,6 +2,9 @@ import { redirect } from "next/navigation";
 import { apiReq } from "../actions";
 import UserProvider from "../authContext";
 import { User } from "@/types/userTypes";
+import MenuPerfil from "@/components/molecules/menuPerfil/MenuPerfil";
+import ChatList from "@/components/organisms/chatList/ChatList";
+import './ws'
 
 export default async function Layout({
     children,
@@ -18,7 +21,13 @@ export default async function Layout({
 
     return (
         <UserProvider value={dataUser}>
-            {children}
+            <main>
+              <div>
+                <MenuPerfil />
+                <ChatList />
+              </div>
+              {children}
+            </main>
         </UserProvider>
     )
 }

@@ -1,16 +1,15 @@
-import MenuPerfil from '@/components/molecules/menuPerfil/MenuPerfil'
-import ChatList from '@/components/organisms/chatList/ChatList'
-import ChatTalk from '@/components/organisms/chatTalk/ChatTalk'
-import './ws'
+import Image from 'next/image';
+import svgTalk from '@/lib/assets/talking-chat.svg'
 
 export default function Home() {
   return (
-    <main>
-      <div>
-        <MenuPerfil />
-        <ChatList />
-      </div>
-      <ChatTalk />
-    </main>
+    <div>
+      <Image style={{opacity: '.5'}}
+        src={svgTalk}
+        alt='svg'
+        width={500}
+        height={500}
+      />
+    </div>
   )
 }

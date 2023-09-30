@@ -5,3 +5,10 @@ export type Message = {
     receiver: string
     id: string
 }
+
+export type Chanel = {
+    type: "GROUP"|"FRIEND"
+    title: string
+    profile: string
+
+}
