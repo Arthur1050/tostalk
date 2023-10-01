@@ -22,7 +22,7 @@ export default async function Layout({
     return (
         <UserProvider value={dataUser}>
             <main>
-              <div>
+              <div className="flex flex-col">
                 <MenuPerfil />
                 <ChatList />
               </div>

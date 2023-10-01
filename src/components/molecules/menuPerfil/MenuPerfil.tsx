@@ -4,9 +4,10 @@ import perfil from '@/lib/assets/perfil.jpg'
 import { MenuPerfilStyle } from "./style";
 import { useContext } from "react";
 import { AuthContext } from "@/app/authContext";
+import { Settings } from "lucide-react";
 
 export default function MenuPerfil() {
-    const {username, profile} = useContext(AuthContext);
+    const [{username, profile}] = useContext(AuthContext);
 
     return(
         <MenuPerfilStyle>
@@ -20,6 +21,9 @@ export default function MenuPerfil() {
                 />
                 <div>
                     <span className="userName">{username}</span>
+                </div>
+                <div className="ml-auto mr-4">
+                    <Settings size={24} />
                 </div>
             </div>
         </MenuPerfilStyle>

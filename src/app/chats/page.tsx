@@ -3,12 +3,10 @@ import svgTalk from '@/lib/assets/talking-chat.svg'
 
 export default function Home() {
   return (
-    <div>
-      <Image style={{opacity: '.5'}}
+    <div className='flex-grow grid place-items-center'>
+      <Image style={{opacity: '.7', width: '70%', marginBottom: '5rem'}}
         src={svgTalk}
         alt='svg'
-        width={500}
-        height={500}
       />
     </div>
   )

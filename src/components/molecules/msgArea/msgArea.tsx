@@ -6,7 +6,7 @@ import { socket } from "@/app/chats/ws";
 
 export default function MsgArea() {
     const [msg, setMsg] = useState('');
-    const {username} = useContext(AuthContext)
+    const [{username}] = useContext(AuthContext)
 
     const keyPressMsg = (ev:KeyboardEvent) => {
         if (ev.key == 'Enter') {

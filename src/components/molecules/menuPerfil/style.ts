@@ -5,6 +5,7 @@ export const MenuPerfilStyle = styled.div`
     padding: .5rem;
     &>div {
         display: flex;
+        align-items: center;
         gap: .5rem;
         background-color: rgb(var(--contrast-rgb));
         padding: .5rem;
