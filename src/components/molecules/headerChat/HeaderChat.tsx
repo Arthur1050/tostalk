@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { ChanelContext } from "@/app/chats/[chanel]/context";
 
 export default function HeaderChat() {
-    const {profile, title} = useContext(ChanelContext);
+    const [{profile, title}] = useContext(ChanelContext);
 
     return(
         <HeaderChatStyle>

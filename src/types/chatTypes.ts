@@ -10,5 +10,5 @@ export type Chanel = {
     type: "GROUP"|"FRIEND"
     title: string
     profile: string
-
+    socketId: string
 }

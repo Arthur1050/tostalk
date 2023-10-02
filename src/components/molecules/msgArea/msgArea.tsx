@@ -3,15 +3,16 @@ import { KeyboardEvent, useContext, useState } from "react";
 import { MsgAreaStyle } from "./style";
 import { AuthContext } from "@/app/authContext";
 import { socket } from "@/app/chats/ws";
+import { ChanelContext } from "@/app/chats/[chanel]/context";
 
 export default function MsgArea() {
     const [msg, setMsg] = useState('');
-    const [{username}] = useContext(AuthContext)
+    const [{socketId, title}] = useContext(ChanelContext)
 
     const keyPressMsg = (ev:KeyboardEvent) => {
         if (ev.key == 'Enter') {
             setMsg('');
-            socket.emit('send-msg', {msg, sender: username});
+            socket.emit('send-msg', {msg, to: socketId, receiver: title});
         }
     }
 

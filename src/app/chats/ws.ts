@@ -9,7 +9,6 @@ export const socket = io('http://localhost:3001', {
 
 socket.on('connect', () => {
     console.log("recovered?", socket.recovered);
-    console.log(socket.id)
 
     socket.emit('user-status', {status: 'online'})
 })

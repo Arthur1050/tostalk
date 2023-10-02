@@ -1,3 +1,5 @@
+export type Status = 'online' | 'offline' | 'ocupado'
+
 export type User = {
     username: string
     profile: string
@@ -6,11 +8,13 @@ export type User = {
 
 export type UserStatus = {
     username: string
-    status: 'online' | 'offline' | 'ocupado'
+    status: Status
+    socketId: string
 }
 
 export type Friend = {
     username: string
     profile: string
-    status: 'online' | 'offline' | 'ocupado'
+    status: Status
+    socketId?: string
 }
