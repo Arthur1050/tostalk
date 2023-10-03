@@ -7,12 +7,17 @@ import { ChanelContext } from "@/app/chats/[chanel]/context";
 
 export default function MsgArea() {
     const [msg, setMsg] = useState('');
-    const [{socketId, title}] = useContext(ChanelContext)
+    const [{title}] = useContext(ChanelContext)
+    const [{friends}] = useContext(AuthContext)
 
     const keyPressMsg = (ev:KeyboardEvent) => {
         if (ev.key == 'Enter') {
             setMsg('');
-            socket.emit('send-msg', {msg, to: socketId, receiver: title});
+            socket.emit('send-msg', {
+                msg, 
+                to: (friends.filter(friend => friend.username == title)[0].socketId||''), 
+                receiver: title
+            });
         }
     }
 

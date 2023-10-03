@@ -19,9 +19,6 @@ export default function ChanelProvider({
     useEffect(() => {
       setChanel(chanel => {
         chanel.socketId = chanel.title;
-        chanel.type == 'FRIEND' && (
-          chanel.socketId = (friends.filter(friend => friend.username == chanel.title)[0].socketId||'')
-        );
         return {...chanel};
       })
     }, [])

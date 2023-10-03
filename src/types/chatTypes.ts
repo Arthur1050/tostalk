@@ -12,3 +12,8 @@ export type Chanel = {
     profile: string
     socketId: string
 }
+
+export type NotifyMsg = {
+    username: string
+    msg: string
+} 
