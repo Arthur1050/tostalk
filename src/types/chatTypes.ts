@@ -11,6 +11,7 @@ export type Chanel = {
     title: string
     profile: string
     socketId: string
+    msgs: Message[] | null
 }
 
 export type NotifyMsg = {

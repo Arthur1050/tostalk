@@ -2,6 +2,7 @@
 import styled from "styled-components";
 
 export const NotifyMsgStyle = styled.div`
+    width: 250px;
     position: absolute;
     background-color: rgb(var(--tertiary-rgb));
     border-radius: .25rem;

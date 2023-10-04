@@ -6,21 +6,24 @@ import { Message } from "@/types/chatTypes";
 import { socket } from "@/app/chats/ws";
 import { ChanelContext } from "@/app/chats/[chanel]/context";
 import { NotifyContext } from "@/app/notifyContext";
+import { AuthContext } from "@/app/authContext";
 
 export default function DialogBox() {
-    const [listMsg, setListMsg] = useState<JSX.Element[]>([])
-    const [{title}] = useContext(ChanelContext)
+    const [{title, msgs}, setChanel] = useContext(ChanelContext)
+    const [{username, profile, friends}] = useContext(AuthContext)
     const [, setNotify] = useContext(NotifyContext)
 
     function receptMsg({msg,date, sender, receiver, id}:Message) {
-        const dateFormat = new Date(date);
 
         if (title == sender) {
-            setListMsg(list => {
-                return [
-                    ...list,
-                    <MsgBox key={id} name={sender} author={1} msgText={msg} temp={`${dateFormat.getHours()}:${dateFormat.getMinutes()}`}/>
-                ];
+            setChanel(data => {
+                return {
+                    ...data,
+                    msgs: [
+                        ...(data.msgs ? data.msgs:[]),
+                        {date, id, msg, receiver, sender}
+                    ]
+                }
             })
         } else {
             setNotify(notifys => [
@@ -40,7 +43,17 @@ export default function DialogBox() {
 
     return(
         <DialogBoxStyle>
-            {listMsg}
+            {msgs && msgs.map(({id, date, msg, receiver, sender}) => {
+                const dateFormat = new Date(date);
+
+                return <MsgBox profile={sender == username ? profile : (friends.filter(friend => friend.username == sender)[0].profile||'')} 
+                        self={sender == username} 
+                        key={id} 
+                        name={sender} 
+                        author={1} 
+                        msgText={msg} 
+                        temp={`${dateFormat.getHours()}:${dateFormat.getMinutes()}`}/>    
+            })}
         </DialogBoxStyle>
     )
 }

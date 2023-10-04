@@ -1,10 +1,8 @@
 'use client'
-
-import { AuthContext } from "@/app/authContext"
 import { Chanel } from "@/types/chatTypes"
-import { createContext, useState, Dispatch, useEffect, useContext } from "react"
+import { createContext, useState, Dispatch, useEffect, SetStateAction } from "react"
 
-export const ChanelContext = createContext<[Chanel, Dispatch<Chanel>]>([] as any)
+export const ChanelContext = createContext<[Chanel, Dispatch<SetStateAction<Chanel>>]>([] as any)
 
 export default function ChanelProvider({
     children,
@@ -14,7 +12,6 @@ export default function ChanelProvider({
     value: Chanel
   }) {
     const [chanel, setChanel] = useState(value)
-    const [{friends}] = useContext(AuthContext)
 
     useEffect(() => {
       setChanel(chanel => {
