@@ -6,6 +6,7 @@ import MenuPerfil from "@/components/molecules/menuPerfil/MenuPerfil";
 import ChatList from "@/components/organisms/chatList/ChatList";
 import './ws'
 import NotifyProvider from "../notifyContext";
+import NotifyMsg from "@/components/molecules/notifyMsg/NotifyMsg";
 
 export default async function Layout({
     children,
@@ -30,6 +31,7 @@ export default async function Layout({
               </div>
               {children}
             </main>
+            <NotifyMsg />
           </NotifyProvider>
         </UserProvider>
     )

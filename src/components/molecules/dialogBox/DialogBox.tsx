@@ -12,23 +12,30 @@ export default function DialogBox() {
     const [{title}] = useContext(ChanelContext)
     const [, setNotify] = useContext(NotifyContext)
 
+    function receptMsg({msg,date, sender, receiver, id}:Message) {
+        const dateFormat = new Date(date);
+
+        if (title == sender) {
+            setListMsg(list => {
+                return [
+                    ...list,
+                    <MsgBox key={id} name={sender} author={1} msgText={msg} temp={`${dateFormat.getHours()}:${dateFormat.getMinutes()}`}/>
+                ];
+            })
+        } else {
+            setNotify(notifys => [
+                ...(notifys ? notifys : []),
+                {msg, username: sender}
+            ])
+        }
+    }
+
     useEffect(() => {
-        socket.on('recept-msg', ({msg,date, sender, receiver, id}:Message) => {
-            const dateFormat = new Date(date);
-            if (title == sender) {
-                setListMsg(list => {
-                    return [
-                        ...list,
-                        <MsgBox key={id} name={sender} author={1} msgText={msg} temp={`${dateFormat.getHours()}:${dateFormat.getMinutes()}`}/>
-                    ];
-                })
-            } else {
-                setNotify(notifys => [
-                    ...(notifys ? notifys : []),
-                    {msg, username: sender}
-                ])
-            }
-        })
+        socket.on('recept-msg', receptMsg)
+
+        return () => {
+            socket.off('recept-msg', receptMsg)
+        }
     }, [])
 
     return(
