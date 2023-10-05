@@ -4,6 +4,7 @@ export type Message = {
     sender: string,
     receiver: string
     id: string
+    chanel: string
 }
 
 export type Chanel = {

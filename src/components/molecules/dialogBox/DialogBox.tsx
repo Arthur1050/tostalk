@@ -21,7 +21,7 @@ export default function DialogBox() {
                     ...data,
                     msgs: [
                         ...(data.msgs ? data.msgs:[]),
-                        {date, id, msg, receiver, sender}
+                        {date, id, msg, receiver, sender, chanel: title}
                     ]
                 }
             })

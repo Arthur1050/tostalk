@@ -17,14 +17,15 @@ export default function MsgArea() {
             setChanel(chanel => {
                 chanel.msgs = [
                     ...(chanel.msgs ? chanel.msgs:[]),
-                    {msg, sender: username, receiver: title, date: new Date().toString(), id: ''}
+                    {msg, sender: username, receiver: title, date: new Date().toString(), id: '', chanel: title}
                 ]
                 return {...chanel}
             })
             socket.emit('send-msg', {
                 msg, 
                 to: (friends.filter(friend => friend.username == title)[0].socketId||''), 
-                receiver: title
+                receiver: title,
+                chanel: title
             });
         }
     }
