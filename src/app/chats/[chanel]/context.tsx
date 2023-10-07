@@ -15,12 +15,12 @@ export default function ChanelProvider({
     const [chanel, setChanel] = useState(value)
 
     useEffect(() => {
-      setChanel(chanel => {
-        chanel.socketId = chanel.title;
-        return {...chanel};
-      })
-      socket.emit('join-chanel', {chanel: chanel.title}, (val:Message[]|null) => {
-        console.log(val)
+      socket.emit('join-chanel', {chanel: chanel.title}, (msgs:Message[]|null) => {
+        setChanel(chanel => {
+          chanel.socketId = chanel.title;
+          chanel.msgs = msgs;
+          return {...chanel};
+        })
       })
     }, [])
 
