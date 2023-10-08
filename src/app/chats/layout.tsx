@@ -7,6 +7,7 @@ import ChatList from "@/components/organisms/chatList/ChatList";
 import './ws'
 import NotifyProvider from "../notifyContext";
 import NotifyMsg from "@/components/molecules/notifyMsg/NotifyMsg";
+import OnlineToast from "@/components/molecules/onlineToast/OnlineToast";
 
 export default async function Layout({
     children,
@@ -24,6 +25,7 @@ export default async function Layout({
     return (
         <UserProvider value={dataUser}>
           <NotifyProvider value={null as any}>
+            <OnlineToast />
             <main>
               <div className="flex flex-col">
                 <MenuPerfil />
