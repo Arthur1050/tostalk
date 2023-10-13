@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import svgTalk from '@/lib/assets/talking-chat.svg'
+import svgTalk from '@/lib/assets/talking-chat.svg';
 
 export default function Home() {
   return (

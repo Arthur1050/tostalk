@@ -15,4 +15,15 @@ export const MenuPerfilStyle = styled.div`
 
         }
     }
+    .config {
+        margin-left: auto;
+        margin-right: 1rem;
+        padding: .5rem;
+        border-radius: 9999px;
+        transition: 150ms background;
+        cursor: pointer;
+        &:hover {
+            background-color: rgb(255 255 255 / 10%);
+        }
+    }
 `

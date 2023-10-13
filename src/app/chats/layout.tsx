@@ -21,7 +21,6 @@ export default async function Layout({
     }
     
     const dataUser:User = await apiReq('/data/user/');
-
     return (
         <UserProvider value={dataUser}>
           <NotifyProvider value={null as any}>

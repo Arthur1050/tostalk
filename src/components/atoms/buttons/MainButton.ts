@@ -14,7 +14,6 @@ export const MainButton = styled.button<{
     line-height: 1.25rem;
     font-weight: 600;
     background-color: var(rgb(--secondary-rgb));
-    width: 100%;
     ${props => props.$primary && css`
         background-color: rgb(var(--contrast-rgb));
         border: 1px solid rgb(var(--contrast-rgb));

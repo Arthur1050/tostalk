@@ -13,11 +13,16 @@ export async function apiReq(endpoint:string, body?:{}|FormData, method:'GET'|'P
       cache: 'no-store'
     }
 
-    method == 'POST' && (options.headers = {
+    method == 'POST' && (options.body = body instanceof FormData ? body : JSON.stringify({...body}))
+    && !(body instanceof FormData) && (options.headers = {
         ...options.headers,
         'Content-Type': 'application/json',
         'Accept': 'application/json'
-    }) && (options.body = body instanceof FormData ? body : JSON.stringify({...body}))
+    })
+
+    console.log(`${route + endpoint}`)
+    console.log(options)
+    console.log(body)
 
     const res = await fetch(`${route + endpoint}`, options);
 

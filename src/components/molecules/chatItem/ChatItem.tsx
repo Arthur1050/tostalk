@@ -15,7 +15,7 @@ export default function ChatItem({username, profile, status}:Friend) {
 
     return(
         <ChatItemStyle onClick={() => router.push(`/chats/${username}`)}>
-            <Image className='rounded-full' width={48} height={48} alt='perfilImage.jpeg' src={profile}/>
+            <Image className='rounded-full' width={44} height={44} alt='perfilImage.jpeg' src={profile}/>
             <div>
                 <span>{username}</span>
             </div>
