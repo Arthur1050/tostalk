@@ -3,7 +3,8 @@ const nextConfig = {
     reactStrictMode: false,
     images: {
         domains: ['cdn.icon-icons.com', 'localhost'],
-        /* disableStaticImages: true,
+        minimumCacheTTL: 1
+        /*disableStaticImages: true,
         dangerouslyAllowSVG: true,
         contentDispositionType: 'attachment',
         contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;" */

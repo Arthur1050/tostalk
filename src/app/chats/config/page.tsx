@@ -21,6 +21,7 @@ export default function Home() {
 
     function handlerPic(ev:React.ChangeEvent<HTMLInputElement>) {
         const {files} = ev.currentTarget;
+        setEdited(true)
         
         if (files) {
             const reader = new FileReader();
