@@ -20,10 +20,6 @@ export async function apiReq(endpoint:string, body?:{}|FormData, method:'GET'|'P
         'Accept': 'application/json'
     })
 
-    console.log(`${route + endpoint}`)
-    console.log(options)
-    console.log(body)
-
     const res = await fetch(`${route + endpoint}`, options);
 
     if(!res.ok) {
