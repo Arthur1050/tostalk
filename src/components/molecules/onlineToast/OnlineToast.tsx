@@ -17,7 +17,9 @@ export default function OnlineToast() {
     return(
         toast ?
         <OnlineToastStyle>
-            <Image src={toast.profile} width={32} height={32} alt="perfil.png"/>
+            <div>
+                <Image src={toast.profile} width={32} height={32} alt="perfil.png"/>
+            </div>
             <p>{toast.username}</p>
         </OnlineToastStyle> : <></>
     )

@@ -9,4 +9,5 @@ export const DialogBoxStyle = styled.div`
     background-color: rgb(var(--tertiary-rgb));
     border-bottom-right-radius: 1rem;
     padding-inline: 1rem;
+    overflow: auto;
 `

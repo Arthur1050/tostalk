@@ -21,12 +21,12 @@ export default function FormLogin() {
         }
     }
     return(
-        <form action={authFunction} className="flex flex-col gap-2">
+        <form action={authFunction} className="flex flex-col gap-4">
             <div className="flex flex-col gap-1">
                 <InputText value={username} setValue={setUsername} placeholder="Usuario..."/>
                 <InputPassword value={password} setValue={setPassword} placeholder="Senha..."/>
             </div>
-            {/* <button className="btn" type="button">
+            <button className="btn" type="submit">
                 <strong>ENTRAR</strong>
                 <div id="container-stars">
                     <div id="stars"></div>
@@ -36,8 +36,8 @@ export default function FormLogin() {
                     <div className="circle"></div>
                     <div className="circle"></div>
                 </div>
-            </button> */}
-            <MainButton type="submit" $primary={true}>Entrar</MainButton>
+            </button>
+            {/* <MainButton type="submit" $primary={true}>Entrar</MainButton> */}
         </form>
     )
 }
