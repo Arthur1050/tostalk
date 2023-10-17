@@ -76,7 +76,7 @@ main {
   }
 }
 
-.btn {
+/* .btn {
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -113,7 +113,7 @@ main {
     text-shadow: 0 0 4px white;
   }
   
-  #glow {
+  .glow {
     position: absolute;
     display: flex;
     width: 12rem;
@@ -238,4 +238,4 @@ main {
       transform: scale(0.75);
       box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
     }
-  }
+  } */

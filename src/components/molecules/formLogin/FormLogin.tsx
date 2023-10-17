@@ -1,6 +1,7 @@
 'use client'
 import { apiReq, saveCookie } from "@/app/actions";
 import { MainButton } from "@/components/atoms/buttons/MainButton";
+import SpecialButton from "@/components/atoms/buttons/SpecialButton";
 import { InputPassword, InputText } from "@/components/atoms/inputText/inputText";
 import { redirect } from "next/navigation";
 import { useState } from "react";
@@ -26,17 +27,18 @@ export default function FormLogin() {
                 <InputText value={username} setValue={setUsername} placeholder="Usuario..."/>
                 <InputPassword value={password} setValue={setPassword} placeholder="Senha..."/>
             </div>
-            <button className="btn" type="submit">
+            <SpecialButton disabled={!username || !password} text="ENTRAR" />
+            {/* <button className="btn" type="submit">
                 <strong>ENTRAR</strong>
-                <div id="container-stars">
+                <div className="starsContainer">
                     <div id="stars"></div>
                 </div>
 
-                <div id="glow">
+                <div className="glow">
                     <div className="circle"></div>
                     <div className="circle"></div>
                 </div>
-            </button>
+            </button> */}
             {/* <MainButton type="submit" $primary={true}>Entrar</MainButton> */}
         </form>
     )
