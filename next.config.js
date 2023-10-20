@@ -2,7 +2,7 @@
 const nextConfig = {
     reactStrictMode: false,
     images: {
-        domains: ['cdn.icon-icons.com', 'localhost'],
+        domains: ['cdn.icon-icons.com', 'localhost', 'tostalk-api.onrender.com'],
         minimumCacheTTL: 0
         /*disableStaticImages: true,
         dangerouslyAllowSVG: true,
