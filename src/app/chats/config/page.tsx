@@ -11,6 +11,7 @@ export default function Home() {
     const [usernameEdit, setUsernameEdit] = useState(username);
     const [edited, setEdited] = useState(false);
     const [sourceImg, setSourceImg] = useState(profile);
+    const [loading, setLoading] = useState(false);
     const form = useRef<HTMLFormElement>(null)
 
     function cancelEdits() {
@@ -54,7 +55,11 @@ export default function Home() {
 
     async function submitData(fd:FormData) {
         fd.set('profile', sourceImg);
-        const data = await apiReq('/update/userdata/', fd, 'POST');
+        const res = await apiReq('/update/userdata/', fd, 'POST');
+
+        if(res) {
+            setEdited(false);
+        }
     }
 
     return (

@@ -24,7 +24,7 @@ export default function MenuPerfil() {
                     <span className="userName">{username}</span>
                 </div>
                 <div className="config">
-                    <Settings onClick={() => router.push('chats/config')} size={24} />
+                    <Settings onClick={() => router.push('/chats/config')} size={24} />
                 </div>
             </div>
         </MenuPerfilStyle>

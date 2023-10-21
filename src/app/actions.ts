@@ -21,14 +21,14 @@ export async function apiReq(endpoint:string, body?:{}|FormData, method:'GET'|'P
     })
 
     const res = await fetch(`${route + endpoint}`, options);
-
-    if(!res.ok) {
-      console.error(res.status, res.statusText, await res.text())
-      return;
-    }
     
     return new Promise(resolve => {
-      resolve(res.json())
+      if (res.ok) {
+        resolve(res.json())
+      } else {
+        console.error(res.status, res.statusText, res.text())
+        resolve(false);
+      }
     })
 }
 
