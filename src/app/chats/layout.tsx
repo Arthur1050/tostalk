@@ -26,7 +26,7 @@ export default async function Layout({
           <NotifyProvider value={null as any}>
             <OnlineToast />
             <main>
-              <div className="flex flex-col">
+              <div className="sideMenu flex flex-col">
                 <MenuPerfil />
                 <ChatList />
               </div>

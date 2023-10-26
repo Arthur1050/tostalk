@@ -8,7 +8,7 @@ export default function ChatList() {
     const [{friends}] = useContext(AuthContext);
 
     return(
-        <ChatListStyle>
+        <ChatListStyle className="chatList">
             {friends.map( ({username, profile, status}) => 
                 <ChatItem status={status} key={username} username={username} profile={profile}/>)
             }

@@ -31,7 +31,7 @@ export default function MsgArea() {
     }
 
     return(
-        <MsgAreaStyle>
+        <MsgAreaStyle className="msgArea">
             <input value={msg} 
                 onChange={ev => setMsg(ev.target.value)}
                 onKeyDown={ev => keyPressMsg(ev)}

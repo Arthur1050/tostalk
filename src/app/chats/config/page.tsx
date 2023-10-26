@@ -5,6 +5,7 @@ import { MainButton } from "@/components/atoms/buttons/MainButton";
 import { InputText } from "@/components/atoms/inputText/inputText";
 import ImageN from "next/image";
 import React, { ChangeEvent, useContext, useRef, useState } from "react";
+import styled, { css } from "styled-components";
 
 export default function Home() {
     const [{username, profile}] = useContext(AuthContext);
@@ -55,16 +56,21 @@ export default function Home() {
 
     async function submitData(fd:FormData) {
         fd.set('profile', sourceImg);
+
+        setLoading(true);
         const res = await apiReq('/update/userdata/', fd, 'POST');
 
         if(res) {
-            setEdited(false);
+            window.location.reload();
+        } else {
+            setLoading(false)
         }
     }
 
     return (
         <div className="w-full p-4 relative">
-            <form className="flex gap-4" ref={form} action={submitData}>
+            <p className="text-2xl mb-4 font-medium tracking-[-.75px]">Perfil</p>
+            <PerfilFormStyle $disabled={loading} ref={form} action={submitData}>
                 <label>
                     <ImageN className="aspect-square rounded-full cursor-pointer" width={125} height={125} src={sourceImg} alt="profile.png" />
                     <input name="profile" className="hidden" onChange={(ev) => handlerPic(ev)} accept="image/*" type="file" />
@@ -72,12 +78,13 @@ export default function Home() {
                 <div>
                     <input name="oldUsername" type="hidden" value={username} />
                     <InputText 
+                        label="Nome"
                         name="username"
                         onkeydown={(ev) => ev.currentTarget.value != username ? setEdited(true) : ''} 
                         value={usernameEdit} setValue={setUsernameEdit} 
                     />
                 </div>
-            </form>
+            </PerfilFormStyle>
             {edited && 
                 <div className="animate-[fadeToTop_200ms_forwards] absolute bottom-0 items-center w-[-webkit-fill-available] mx-4 mb-4 flex justify-between p-2 rounded-lg bg-[rgb(var(--primary-rgb))]">
                     <p className="ml-4">Deseja salvar as alterações feitas aqui?</p>
@@ -90,3 +97,17 @@ export default function Home() {
         </div>
     )
 }
+
+interface PropsStyled {
+    $disabled?: boolean
+}
+const PerfilFormStyle = styled.form<PropsStyled>`
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    ${props => props.$disabled && css`
+        > * {
+            opacity: .5;
+        }
+    `}
+`

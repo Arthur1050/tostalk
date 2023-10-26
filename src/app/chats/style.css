@@ -1,0 +1,11 @@
+@media screen and (max-width: 990px) {
+    .homeMain {
+        display: none;
+    }
+    .sideMenu {
+        flex-grow: 1;
+    }
+    .chatList {
+        width: auto !important;
+    }
+}

@@ -23,6 +23,7 @@ interface Props {
     onchange?: () => void
     onkeydown?: (ev:React.KeyboardEvent<HTMLInputElement>) => void
     name?: string
+    label?:string
 }
 
 export function InputText({
@@ -31,16 +32,26 @@ export function InputText({
     setValue,
     onchange,
     onkeydown,
-    name
+    name,
+    label = ''
 } : Props) {
 
-    return <InputTextStyled type="text" 
-                onChange={(ev) => {setValue(ev.currentTarget.value); onchange && onchange()}}
-                onKeyDown={(ev) => onkeydown && onkeydown(ev)}
-                value={value}
-                placeholder={placeholder}
-                name={name}
-            />
+    const Input = <InputTextStyled type="text" 
+        onChange={(ev) => {setValue(ev.currentTarget.value); onchange && onchange()}}
+        onKeyDown={(ev) => onkeydown && onkeydown(ev)}
+        value={value}
+        placeholder={placeholder}
+        name={name}
+    />
+
+    if(!label) {
+        return Input;
+    } else {
+        return <label className="flex flex-col">
+            <span className="text-xs ms-1">{label}</span>
+            {Input}
+        </label>
+    }
 }
 
 export function InputPassword({
