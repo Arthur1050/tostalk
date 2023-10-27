@@ -5,10 +5,19 @@ import { useContext } from "react";
 import { AuthContext } from "@/app/authContext";
 import { Settings } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { SystemContext } from "@/app/chats/systemContext";
 
 export default function MenuPerfil() {
     const router = useRouter();
     const [{username, profile}] = useContext(AuthContext);
+    const [, setSystem] = useContext(SystemContext);
+
+    function toConfig() {
+        router.push('/chats/config')
+        setSystem((val:any) => {
+            return {...val, viewMenu: false}
+        })
+    }
 
     return(
         <MenuPerfilStyle>
@@ -24,7 +33,7 @@ export default function MenuPerfil() {
                     <span className="userName">{username}</span>
                 </div>
                 <div className="config">
-                    <Settings onClick={() => router.push('/chats/config')} size={24} />
+                    <Settings onClick={toConfig} size={24} />
                 </div>
             </div>
         </MenuPerfilStyle>

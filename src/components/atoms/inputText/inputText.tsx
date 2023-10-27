@@ -1,4 +1,5 @@
 'use client'
+import { Eye, EyeOff } from "lucide-react";
 import { Dispatch, SetStateAction, useState } from "react";
 import styled from "styled-components";
 
@@ -24,6 +25,7 @@ interface Props {
     onkeydown?: (ev:React.KeyboardEvent<HTMLInputElement>) => void
     name?: string
     label?:string
+    placeMove?: boolean
 }
 
 export function InputText({
@@ -57,12 +59,27 @@ export function InputText({
 export function InputPassword({
     placeholder,
     setValue,
-    value
+    value,
+    placeMove
 } : Props) {
+    const [focused, setFocused] = useState(false);
+    const [view, setView] = useState(false)
+
+    /* incompleto */
+    const placeHolderMove = 
+        <span className={`${focused||value ? 'top-[0%] scale-75' : 'top-[50%]'} bg-[rgb(var(--tertiary-rgb))] origin-left translate-y-[-50%] pointer-events-none absolute transition-all h-fit my-auto ms-[1.125rem] text-[#99a0ab]`}>
+            {placeholder}
+        </span>
     
-    return <InputTextStyled type="password" 
+    return <label className="relative">
+        {placeMove && placeHolderMove}
+        <InputTextStyled onFocus={() => setFocused(true)} onBlur={() => setFocused(false)} type={view ? "text": "password"}
                 onChange={(ev) => setValue(ev.currentTarget.value)}
                 value={value}
-                placeholder={placeholder}
+                placeholder={placeMove ? '' : placeholder}
             />
+        <span onClick={() => setView(!view)} className="cursor-pointer top-0 bottom-0 my-auto right-[1.125rem] h-fit absolute">
+            {view ? <Eye size={20}/> : <EyeOff size={20}/>}
+        </span>
+    </label> 
 }

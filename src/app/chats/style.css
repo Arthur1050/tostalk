@@ -1,5 +1,5 @@
 @media screen and (max-width: 990px) {
-    .homeMain {
+    /* .homeMain {
         display: none;
     }
     .sideMenu {
@@ -7,5 +7,5 @@
     }
     .chatList {
         width: auto !important;
-    }
+    } */
 }

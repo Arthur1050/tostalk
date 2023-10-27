@@ -3,6 +3,7 @@ import { apiReq } from "@/app/actions";
 import { AuthContext } from "@/app/authContext";
 import { MainButton } from "@/components/atoms/buttons/MainButton";
 import { InputText } from "@/components/atoms/inputText/inputText";
+import MenuToggle from "@/components/atoms/menuToggle/MenuToggle";
 import ImageN from "next/image";
 import React, { ChangeEvent, useContext, useRef, useState } from "react";
 import styled, { css } from "styled-components";
@@ -69,7 +70,10 @@ export default function Home() {
 
     return (
         <div className="w-full p-4 relative">
-            <p className="text-2xl mb-4 font-medium tracking-[-.75px]">Perfil</p>
+            <div className="flex items-center gap-4 mb-4">
+                {innerWidth <= 425 ? <MenuToggle /> : ''}
+                <p className="text-2xl font-medium tracking-[-.75px]">Perfil</p>
+            </div>
             <PerfilFormStyle $disabled={loading} ref={form} action={submitData}>
                 <label>
                     <ImageN className="aspect-square rounded-full cursor-pointer" width={125} height={125} src={sourceImg} alt="profile.png" />
