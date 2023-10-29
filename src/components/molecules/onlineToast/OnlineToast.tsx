@@ -17,9 +17,10 @@ export default function OnlineToast() {
     return(
         toast ?
         <OnlineToastStyle>
-            <div>
+            <div className={`status w-[8px] h-[8px] rounded-full bg-green-500`}/>
+            {/* <div>
                 <Image src={toast.profile} width={32} height={32} alt="perfil.png"/>
-            </div>
+            </div> */}
             <p>{toast.username}</p>
         </OnlineToastStyle> : <></>
     )

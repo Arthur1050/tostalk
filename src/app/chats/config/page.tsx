@@ -71,7 +71,7 @@ export default function Home() {
     return (
         <div className="w-full p-4 relative">
             <div className="flex items-center gap-4 mb-4">
-                {innerWidth <= 425 ? <MenuToggle /> : ''}
+                <MenuToggle />
                 <p className="text-2xl font-medium tracking-[-.75px]">Perfil</p>
             </div>
             <PerfilFormStyle $disabled={loading} ref={form} action={submitData}>

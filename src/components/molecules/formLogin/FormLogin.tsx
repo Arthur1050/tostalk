@@ -1,14 +1,16 @@
 'use client'
 import { apiReq, saveCookie } from "@/app/actions";
+import { SystemContext } from "@/app/systemContext";
 import { MainButton } from "@/components/atoms/buttons/MainButton";
 import SpecialButton from "@/components/atoms/buttons/SpecialButton";
 import { InputPassword, InputText } from "@/components/atoms/inputText/inputText";
 import { redirect } from "next/navigation";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 export default function FormLogin() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [, setSystem] = useContext(SystemContext);
 
     const authFunction = async (fd:FormData) => {
         const data:{token:string, name:string} = await apiReq('/auth/login/', {
@@ -18,7 +20,13 @@ export default function FormLogin() {
 
         if (data?.token) {
             saveCookie('token', data.token)
-            redirect('/chats');
+            /* setSystem((system:any) => {
+                return {
+                    ...system,
+                    logged: true
+                }
+            }) */
+            redirect('/chats')
         }
     }
     return(

@@ -9,7 +9,7 @@ import NotifyProvider from "../notifyContext";
 import NotifyMsg from "@/components/molecules/notifyMsg/NotifyMsg";
 import OnlineToast from "@/components/molecules/onlineToast/OnlineToast";
 import SideMenu from "@/components/organisms/sideMenu/SideMenu";
-import SystemProvider from "./systemContext";
+import SystemProvider from "../systemContext";
 
 export default async function Layout({
     children,
@@ -26,14 +26,12 @@ export default async function Layout({
     return (
         <UserProvider value={dataUser}>
           <NotifyProvider value={null as any}>
-            <SystemProvider>
               <OnlineToast />
               <main>
                 <SideMenu /> 
                 {children}
               </main>
               <NotifyMsg />
-            </SystemProvider>
           </NotifyProvider>
         </UserProvider>
     )

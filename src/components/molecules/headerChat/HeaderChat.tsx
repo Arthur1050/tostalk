@@ -10,7 +10,7 @@ export default function HeaderChat() {
 
     return(
         <HeaderChatStyle>
-            {innerWidth  <= 425 ? <MenuToggle /> : ''}
+            <MenuToggle />
             <Image className='rounded-full' width={40} height={40} alt='perfilImage.jpeg' src={profile}/>
             <div>
                 <span>{title}</span>

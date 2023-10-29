@@ -1,7 +1,7 @@
 'use client'
-import { SystemContext } from "@/app/chats/systemContext";
+import { SystemContext } from "@/app/systemContext";
 import { Menu } from "lucide-react";
-import { useContext } from "react";
+import { useContext, useLayoutEffect, useRef, useState } from "react";
 
 interface Props {
     classes?: string
@@ -9,12 +9,17 @@ interface Props {
 
 export default function MenuToggle({classes}:Props) {
     const [, setSystem] = useContext(SystemContext);
+    const [width, setState] = useState(0);
 
-    return (
+    useLayoutEffect(() => {
+        setState(innerWidth)
+    })
+
+    return width <= 570 ?
         <Menu onClick={() => {
             setSystem((val:{}) => {
                 return {...val, viewMenu: true}
             })
         }} className={classes} size={30} />
-    )
+    :<></>
 }

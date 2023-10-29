@@ -10,6 +10,7 @@ export default function SystemProvider({
   }) {
     const [system, setSystem] = useState({
         viewMenu: false,
+        logged: false
     });
 
     return (

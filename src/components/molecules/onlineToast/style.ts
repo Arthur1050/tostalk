@@ -10,10 +10,10 @@ export const OnlineToastStyle = styled.div`
     animation: fadeToBottom 200ms;
     top: 1rem;
     margin-inline: auto;
-    padding: .5rem;
-    padding-right: 1rem;
+    padding: .5rem 1rem;
     gap: .5rem;
     border-radius: 9999px;
+    z-index: 1;
     & > div {
         border: 2px solid rgb(var(--green-rgb));
         border-radius: 9999px;

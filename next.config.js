@@ -13,7 +13,7 @@ const nextConfig = {
         serverActions: true
     },
     compiler: {
-        styledComponents: true,
+        styledComponents: true
     }
 }
 

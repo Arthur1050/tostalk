@@ -52,9 +52,14 @@ body {
 main {
   display: flex;
   flex: auto;
+  gap: .25rem;
   max-width: 1248px;
-  background: rgb(var(--secondary-rgb));
+}
+main > div {
   border-radius: 1rem;
+}
+main > div:not(.sideMenuMob) {
+  background: rgb(var(--secondary-rgb));
 }
 
 @keyframes fadeToTop {
@@ -77,11 +82,11 @@ main {
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 900px) {
   body {
     padding: 0;
   }
-  main {
+  main > div {
     border-radius: 0;
   }
 }

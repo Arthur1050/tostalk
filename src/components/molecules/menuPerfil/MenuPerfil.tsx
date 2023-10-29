@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "@/app/authContext";
 import { Settings } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { SystemContext } from "@/app/chats/systemContext";
+import { SystemContext } from "@/app/systemContext";
 
 export default function MenuPerfil() {
     const router = useRouter();

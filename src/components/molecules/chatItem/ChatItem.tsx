@@ -4,7 +4,7 @@ import { ChatItemStyle } from "./style";
 import { Friend } from '@/types/userTypes';
 import { useRouter } from "next/navigation";
 import { useContext } from "react";
-import { SystemContext } from "@/app/chats/systemContext";
+import { SystemContext } from "@/app/systemContext";
 
 export default function ChatItem({username, profile, status}:Friend) {
     const [, setSystem] = useContext(SystemContext);

@@ -10,4 +10,12 @@ export const DialogBoxStyle = styled.div`
     border-bottom-right-radius: 1rem;
     padding-inline: 1rem;
     overflow: auto;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    @media screen and (max-width: 900px) {
+        #diologBox {
+            border-bottom-right-radius: 0;
+        }
+    }
 `

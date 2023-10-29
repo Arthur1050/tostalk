@@ -16,7 +16,7 @@ export const SideMenuStyle = styled.div<Props>`
         background-color: #00000040;
     `}
     > div {
-        width: 70vw;
+        width: 250px;
         height: 100%;
         border-radius: 0 1rem 1rem 0;
         background-color: rgb(var(--secondary-rgb));

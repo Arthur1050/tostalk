@@ -2,12 +2,17 @@
 import MenuPerfil from "@/components/molecules/menuPerfil/MenuPerfil";
 import { SideMenuStyle } from "./style";
 import ChatList from "../chatList/ChatList";
-import { useContext, useRef, useState } from "react";
-import { SystemContext } from "@/app/chats/systemContext";
+import { useContext, useRef, useState, useLayoutEffect, useEffect } from "react";
+import { SystemContext } from "@/app/systemContext";
 
 export default function SideMenu() {
     const [system, setSystem] = useContext(SystemContext);
     const sideMenu = useRef<HTMLDivElement>(null)
+    const [width, setWidth] = useState(0);
+
+    useLayoutEffect(() => {
+        setWidth(innerWidth);
+    })
 
     function closeSideMenu({target}:React.MouseEvent) {
         const {current} = sideMenu;
@@ -19,8 +24,8 @@ export default function SideMenu() {
         }
     }
 
-    return(  innerWidth <= 425 ?
-        <SideMenuStyle $openned={system.viewMenu} onClick={closeSideMenu}>
+    return(  width <= 570 ?
+        <SideMenuStyle className="sideMenuMob" $openned={system.viewMenu} onClick={closeSideMenu}>
             <div ref={sideMenu}>
                 <MenuPerfil />
                 <ChatList />

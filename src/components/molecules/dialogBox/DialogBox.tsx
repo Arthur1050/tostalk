@@ -42,7 +42,7 @@ export default function DialogBox() {
     }, [])
 
     return(
-        <DialogBoxStyle>
+        <DialogBoxStyle id="diologBox">
             {msgs && msgs.map(({id, date, msg, receiver, sender}) => {
                 const dateFormat = new Date(date);
 

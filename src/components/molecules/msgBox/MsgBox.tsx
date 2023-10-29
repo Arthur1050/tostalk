@@ -28,7 +28,10 @@ export default function MsgBox({
                 style={{objectFit: "cover"}}
             />
             <div className="containerMsg">
-                <span>{name} - {temp}</span>
+                <div>
+                    <span>{name}</span>
+                    <span>{temp}</span>
+                </div>
                 <div>
                     {msgText}
                 </div>
