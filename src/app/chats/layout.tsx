@@ -2,14 +2,13 @@ import { redirect } from "next/navigation";
 import { apiReq } from "../actions";
 import UserProvider from "../authContext";
 import { User } from "@/types/userTypes";
-import MenuPerfil from "@/components/molecules/menuPerfil/MenuPerfil";
-import ChatList from "@/components/organisms/chatList/ChatList";
 import './ws'
 import NotifyProvider from "../notifyContext";
 import NotifyMsg from "@/components/molecules/notifyMsg/NotifyMsg";
 import OnlineToast from "@/components/molecules/onlineToast/OnlineToast";
 import SideMenu from "@/components/organisms/sideMenu/SideMenu";
-import SystemProvider from "../systemContext";
+
+import "./style.css"
 
 export default async function Layout({
     children,

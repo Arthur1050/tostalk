@@ -109,6 +109,7 @@ const PerfilFormStyle = styled.form<PropsStyled>`
     display: flex;
     align-items: center;
     gap: 1rem;
+    padding-inline: 1rem;
     ${props => props.$disabled && css`
         > * {
             opacity: .5;

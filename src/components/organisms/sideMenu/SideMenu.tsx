@@ -12,6 +12,9 @@ export default function SideMenu() {
 
     useLayoutEffect(() => {
         setWidth(innerWidth);
+        window.addEventListener('resize', () => {
+            ((width <= 570 && innerWidth > 570) || (width > 570 && innerWidth <= 570)) && setWidth(innerWidth);
+        })
     })
 
     function closeSideMenu({target}:React.MouseEvent) {

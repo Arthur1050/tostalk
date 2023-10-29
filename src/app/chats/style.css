@@ -1,11 +1,11 @@
-@media screen and (max-width: 990px) {
-    /* .homeMain {
-        display: none;
-    }
-    .sideMenu {
-        flex-grow: 1;
-    }
-    .chatList {
-        width: auto !important;
-    } */
+main {
+    border-radius: 0;
+    background: unset;
+}
+
+main > div {
+    border-radius: 1rem;
+}
+    main > div:not(.sideMenuMob) {
+    background: rgb(var(--secondary-rgb));
 }

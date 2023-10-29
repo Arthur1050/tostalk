@@ -9,10 +9,13 @@ interface Props {
 
 export default function MenuToggle({classes}:Props) {
     const [, setSystem] = useContext(SystemContext);
-    const [width, setState] = useState(0);
+    const [width, setWidth] = useState(0);
 
     useLayoutEffect(() => {
-        setState(innerWidth)
+        setWidth(innerWidth)
+        window.addEventListener('resize', () => {
+            innerWidth <= 570 && setWidth(innerWidth);
+        })
     })
 
     return width <= 570 ?
